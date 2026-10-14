@@ -17,7 +17,7 @@ El sistema consta de un **Servidor** que procesa la lógica, la seguridad y los 
 
 ## Estructura del Proyecto
 ```text
-pfo-gestion-tareas/
+pfo_02/
 │
 ├── servidor.py          # Servidor central, base de datos y endpoints API
 ├── cliente.py           # Aplicación interactiva de consola para el usuario
