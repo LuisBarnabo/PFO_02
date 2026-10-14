@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Tareas</title>
+</head>
+<body>
+    <div class="container">
+        <h1>¡Bienvenidos al Sistema de Gestión de Tareas!</h1>
+        <p>Has iniciado sesión correctamente.</p>
+
+        {% if usuario %}
+            <h3>Tus tareas registradas:</h3>
+            {% if tareas %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Título</th>
+                            <th>Descripción</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for t in tareas %}
+                        <tr>
+                            <td>{{ t.id }}</td>
+                            <td>{{ t.titulo }}</td>
+                            <td>{{ t.descripcion if t.descripcion else 'Sin descripción' }}</td>
+                            <td><span class="badge">{{ t.estado }}</span></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p class="empty-msg">No tienes tareas registradas en este momento.</p>
+            {% endif %}
+        {% else %}
+            <p class="empty-msg">Acceso general de bienvenida. Inicia sesión desde tu cliente en consola para ver tus tareas personalizadas.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
